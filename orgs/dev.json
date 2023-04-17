@@ -1,6 +1,6 @@
 {
   "orgName": "Netzero-Percentage-Allocation-Emissions - Dev Org",
-  "edition": "Developer",
+  "template": "0TTB0000001H8W6",
   "settings": {
     "lightningExperienceSettings": {
       "enableS1DesktopEnabled": true
