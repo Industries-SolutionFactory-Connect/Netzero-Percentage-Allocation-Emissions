@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"packageDirectories": [{"path": "force-app", "default": true}], "namespace": null, "sourceApiVersion": "57.0"}
+=======
+{"packageDirectories": [{"path": "force-app", "default": true}], "namespace": null, "sourceApiVersion": "57.0"}
+>>>>>>> 4ede358cd8212a16cc5997c98e7cd0c0ab6aa163
