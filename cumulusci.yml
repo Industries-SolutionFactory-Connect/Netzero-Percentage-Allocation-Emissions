@@ -3,7 +3,7 @@ project:
     name: Netzero-Percentage-Allocation-Emissions
     package:
         name: Netzero-Percentage-Allocation-Emissions
-        api_version: '55.0'
+        api_version: '57.0'
     git:
         default_branch: 'main'
         prefix_feature: 'feature/'
@@ -26,3 +26,25 @@ tasks:
     run_tests:
         options:
             required_org_code_coverage_percent: 75
+flows:
+    config_dev:
+        steps:
+            3:
+                task: deploy
+                options:
+                    path: force-app/main/default
+                ui_options:
+                    name: Deploy Metadata for Netzero Cloud configurations
+
+plans:
+    install:
+        slug: install
+        title: Install Netzero Cloud Pre-configured Record Types
+        tier: primary
+        is_listed: True
+        preflight_message: "This will install Netzero Cloud Record Types"
+        post_install_message: "Thanks for installing Netzero Cloud Record Types Module. "
+        error_message: "To get help with this error, go to [help.salesforce.com](https://help.salesforce.com/), find the Support & Services area and log a technical support ticket with Salesforce. Include “PMM” in the subject line and include in your comment the installation link shown here."
+        steps:
+            1:
+                flow: config_dev

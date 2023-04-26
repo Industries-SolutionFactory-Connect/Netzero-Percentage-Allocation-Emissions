@@ -110,15 +110,6 @@ Insert BldgEnrgyIntensity:
   table: BldgEnrgyIntensity
   fields:
   - Name
-Insert StnryAssetEnvSrcCnfg:
-  sf_object: StnryAssetEnvSrcCnfg
-  table: StnryAssetEnvSrcCnfg
-  fields:
-  - MasterLabel
-  - Language
-  - DeveloperName
-  - StationaryAssetType
-  - RecordTypeId
 Insert CrbnEmssnScopeAlloc:
   sf_object: CrbnEmssnScopeAlloc
   table: CrbnEmssnScopeAlloc
@@ -346,3 +337,28 @@ Insert StnryAssetEnrgyUse:
     SupplierId:
       table: Supplier
       key_field: SupplierId
+Insert PartyRoleRelation:
+  sf_object: PartyRoleRelation
+  table: PartyRoleRelation
+  fields:
+  - RelatedRoleName
+  - RoleName
+  - ShouldCreaInversRoleAuto
+  - RelationshipObjectName
+Insert AccountAccountRelation:
+  sf_object: AccountAccountRelation
+  table: AccountAccountRelation
+  fields:
+  - IsActive
+  - StartDate
+  - HierarchyType
+  lookups:
+    RelatedAccountId:
+      table: Account
+      key_field: RelatedAccountId
+    AccountId:
+      table: Account
+      key_field: AccountId
+    PartyRoleRelationId:
+      table: PartyRoleRelation
+      key_field: PartyRoleRelationId

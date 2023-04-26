@@ -41,10 +41,24 @@ CREATE TABLE "Account" (
 INSERT INTO "Account" VALUES(1,'','(212) 555-5555','Acme','','(212) 555-5555','','','','Prospect','100000000.0','New York','USA','','','','NY','10 Main Rd.','31349','','680','Manufacturing','','New York','USA','','','','NY','10 Main Rd.','31349','','','','','');
 INSERT INTO "Account" VALUES(2,'Founded in March 1999, salesforce.com (http://www.salesforce.com) builds and delivers customer relationship management (CRM) applications as scalable online services. The salesforce.com product suite - Team Edition, Professional Edition, Enterprise Edition, Wireless Edition and Offline Edition - gives companies of all sizes a complete 360-degree view of the customer. The company''s award-winning CRM solutions provide integrated online sales force automation, customer service and support management, and marketing automation applications to help companies meet the complex challenges of global customer communication. Salesforce.com has received considerable recognition in the industry, including Editors'' Choice and two Five-Star ratings from PC Magazine, two Deploy Awards from InfoWorld, Red Herring 100, Upside Hot 100, Investor''s Choice Award from Enterprise Outlook, Editors'' Choice from TMCLabs, Top 10 CRM Implementation from Aberdeen Group, and InfoWorld''s 2001 CRM Technology of the Year. Founded in 1999, salesforce.com is headquartered in San Francisco, with offices in Europe and Asia.','(415) 901-7040','salesforce.com','','(415) 901-7000','','','','Customer','','San Francisco','USA','','','','CA','The Landmark @ One Market, Suite 300','94105','','','Technology','','San Francisco','USA','','','','CA','The Landmark @ One Market, Suite 300','94105','','','','http://www.salesforce.com','');
 INSERT INTO "Account" VALUES(3,'GBM is the worldwide leader in technology news and information on the Web and the producer of the longest-running and farthest-reaching television shows about technology. GBM''s network of sites combines breakthrough interactive technology with engaging content and design and is consistently ranked as the Internet''s leading content network in terms of both audience size and revenue, serving millions of users each day. The company''s television programming is broadcast by the USA Network and the Sci-Fi Channel to more than 70 million households and is syndicated to broadcast television stations in the nation''s top 120 markets, including the top 10 markets.','','Global Media','','(905) 555-1212','','','','Prospect','','Toronto','Canada','','','','Ontario','150 Chestnut Street','L4B 1Y3','','14668','Media','','Toronto','Canada','','','','Ontario','150 Chestnut Street','L4B 1Y3','','','','','');
-INSERT INTO "Account" VALUES(4,'','','Cumulus NY','','','','','','','','NY','USA','','','','NY','18 George St','','','','','','','','','','','','','','','','','','');
-INSERT INTO "Account" VALUES(5,'','','Cumulus UK','','','','','','','','London','UK','','','','','88 Downing St','','','','','','','','','','','','','','','','','','');
-INSERT INTO "Account" VALUES(6,'','','Cumulus Arlington','','','','','','','','Arlington','USA','','','','TX','90 Elizabeth St','','','','','','','','','','','','','','','','','','');
-INSERT INTO "Account" VALUES(7,'','','Cumulus Corp','','','','','','','500000000.0','Chicago','USA','','','','IL','1 Freedom St','','','','','','','','','','','','','','','','','','');
+INSERT INTO "Account" VALUES(4,'','','Sample Account for Entitlements','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','');
+INSERT INTO "Account" VALUES(5,'','','Cumulus NY','','','','','','','','NY','USA','','','','NY','18 George St','','','','','','','','','','','','','','','','','','');
+INSERT INTO "Account" VALUES(6,'','','Cumulus UK','','','','','','','','London','UK','','','','','88 Downing St','','','','','','','','','','','','','','','','','','');
+INSERT INTO "Account" VALUES(7,'','','Cumulus Arlington','','','','','','','','Arlington','USA','','','','TX','90 Elizabeth St','','','','','','','','','','','','','','','','','','');
+INSERT INTO "Account" VALUES(8,'','','Cumulus Corp','','','','','','','500000000.0','Chicago','USA','','','','IL','1 Freedom St','','','','','','','','','','','','','','','','','','');
+CREATE TABLE "AccountAccountRelation" (
+	id INTEGER NOT NULL, 
+	"IsActive" VARCHAR(255), 
+	"StartDate" VARCHAR(255), 
+	"HierarchyType" VARCHAR(255), 
+	"RelatedAccountId" VARCHAR(255), 
+	"AccountId" VARCHAR(255), 
+	"PartyRoleRelationId" VARCHAR(255), 
+	PRIMARY KEY (id)
+);
+INSERT INTO "AccountAccountRelation" VALUES(1,'True','2023-04-01','Parent','7','8','1');
+INSERT INTO "AccountAccountRelation" VALUES(2,'True','2022-04-01','Parent','5','8','1');
+INSERT INTO "AccountAccountRelation" VALUES(3,'True','2023-04-01','Parent','6','8','1');
 CREATE TABLE "AnnualEmssnInventory" (
 	id INTEGER NOT NULL, 
 	"EnergyUsageCmclBldOverride" VARCHAR(255), 
@@ -165,7 +179,7 @@ CREATE TABLE "InternalOrganizationUnit" (
 	"ParentOrganizationId" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
-INSERT INTO "InternalOrganizationUnit" VALUES(1,'','Parent','','7','');
+INSERT INTO "InternalOrganizationUnit" VALUES(1,'','Parent','','8','');
 CREATE TABLE "OtherEmssnFctrSet" (
 	id INTEGER NOT NULL, 
 	"Ch4GlblWarmingPot" VARCHAR(255), 
@@ -234,6 +248,15 @@ INSERT INTO "OtherEmssnFctrSetItem" VALUES(27,'','KWH_PER_L','0.030979795','G_PE
 INSERT INTO "OtherEmssnFctrSetItem" VALUES(28,'','KWH_PER_L','0.018909745','G_PER_KM','5.68','KG_PER_US_GAL','AutogasLPG','0.031784465','G_PER_KM','','KG_PER_US_GAL','4');
 INSERT INTO "OtherEmssnFctrSetItem" VALUES(29,'','KWH_PER_L','0.0','G_PER_US_GAL','9.75','KG_PER_US_GAL','JetFuel','0.3','G_PER_US_GAL','','KG_PER_US_GAL','4');
 INSERT INTO "OtherEmssnFctrSetItem" VALUES(30,'','KWH_PER_L','0.024622902','G_PER_KM','8.78','KG_PER_US_GAL','Gasoline','0.006061847','G_PER_KM','','KG_PER_US_GAL','4');
+CREATE TABLE "PartyRoleRelation" (
+	id INTEGER NOT NULL,
+	"RelatedRoleName" VARCHAR(255), 
+	"RoleName" VARCHAR(255), 
+	"ShouldCreaInversRoleAuto" VARCHAR(255), 
+	"RelationshipObjectName" VARCHAR(255),
+	PRIMARY KEY (id)
+);
+INSERT INTO "PartyRoleRelation" VALUES(1,'Parent','Subsidiary','True','Account_Account_Relationship');
 CREATE TABLE "RefrigerantEmssnFctr" (
 	id INTEGER NOT NULL, 
 	"EmissionFactorDataSource" VARCHAR(255), 
@@ -265,8 +288,8 @@ CREATE TABLE "StnryAssetCrbnFtprnt" (
 	"TotalFloorAreaUnit" VARCHAR(255), 
 	"AnnualEmssnInventoryId" VARCHAR(255), 
 	"BuildingEnergyIntensityId" VARCHAR(255), 
-	"PrevYrAnnlCarbonFootprintId" VARCHAR(255), 
 	"RegionalBldgEnergyIntensityId" VARCHAR(255), 
+	"PrevYrAnnlCarbonFootprintId" VARCHAR(255), 
 	"StnryAssetEnvrSrcId" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
@@ -375,22 +398,6 @@ INSERT INTO "StnryAssetEnrgyUse" VALUES(61,'','','','2023-01-31','','10000.0','k
 INSERT INTO "StnryAssetEnrgyUse" VALUES(62,'','','','2023-02-28','','10000.0','kWh','Electricity','Cumulus UK Electricity - 2023 - Month 2','881762.0','sqft','1.0','','','2023-02-01','','','','','','False','1600000.0','sqft','6','4','1','7','1','');
 INSERT INTO "StnryAssetEnrgyUse" VALUES(63,'','','','2023-03-31','','10000.0','kWh','Electricity','Cumulus UK Electricity - 2023 - Month 3','881762.0','sqft','1.0','','','2023-03-01','','','','','','False','1600000.0','sqft','6','4','1','7','1','');
 INSERT INTO "StnryAssetEnrgyUse" VALUES(64,'','','','2023-04-30','','10000.0','kWh','Electricity','Cumulus UK Electricity - 2023 - Month 4','881762.0','sqft','1.0','','','2023-04-01','','','','','','False','1600000.0','sqft','6','4','1','7','1','');
-CREATE TABLE "StnryAssetEnvSrcCnfg" (
-	id INTEGER NOT NULL, 
-	"MasterLabel" VARCHAR(255), 
-	"Language" VARCHAR(255), 
-	"DeveloperName" VARCHAR(255), 
-	"RecordTypeId" VARCHAR(255), 
-	"StationaryAssetType" VARCHAR(255), 
-	PRIMARY KEY (id)
-);
-INSERT INTO "StnryAssetEnvSrcCnfg" VALUES(1,'Commercial Building','en_US','Commercial_Building','0120u000000Ke9PAAS','CommercialBuilding');
-INSERT INTO "StnryAssetEnvSrcCnfg" VALUES(2,'Data Center','en_US','Data_Center','0120u000000Ke9QAAS','DataCenter');
-CREATE TABLE "StnryAssetEnvSrcCnfg_rt_mapping" (
-	record_type_id VARCHAR(18) NOT NULL, 
-	developer_name VARCHAR(255), 
-	PRIMARY KEY (record_type_id)
-);
 CREATE TABLE "StnryAssetEnvrSrc" (
 	id INTEGER NOT NULL, 
 	"BusinessRegion" VARCHAR(255), 
@@ -414,18 +421,18 @@ CREATE TABLE "StnryAssetEnvrSrc" (
 	"TotalFloorArea" VARCHAR(255), 
 	"TotalFloorAreaUnit" VARCHAR(255), 
 	"RecordTypeId" VARCHAR(255), 
+	"RegionalBldgEnergyIntensityId" VARCHAR(255), 
 	"CrbnEmssnScopeAllocId" VARCHAR(255), 
 	"ElectricityEmssnFctrId" VARCHAR(255), 
 	"OtherEmssnFctrId" VARCHAR(255), 
-	"ParentEnvironmentalSourceId" VARCHAR(255), 
 	"RefrigerantEmssnFctrId" VARCHAR(255), 
-	"RegionalBldgEnergyIntensityId" VARCHAR(255), 
+	"ParentEnvironmentalSourceId" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
-INSERT INTO "StnryAssetEnvrSrc" VALUES(1,'EMEA','','','','True','False','','','Cumulus UK Asset','5000.0','sqft','','','','','Office','','','5600.0','sqft','0120u000000Ke9PAAS','','6','2','','','');
-INSERT INTO "StnryAssetEnvrSrc" VALUES(2,'AMER','','','','True','False','','','Cumulus Arlington Asset','9000.0','sqft','','','','','Office','','','9600.0','sqft','0120u000000Ke9PAAS','','7','1','','','');
-INSERT INTO "StnryAssetEnvrSrc" VALUES(3,'AMER','','','','True','False','','','Cumulus NY Asset','8000.0','sqft','','','','','Office','','','8600.0','sqft','0120u000000Ke9PAAS','','8','1','','','');
-INSERT INTO "StnryAssetEnvrSrc" VALUES(4,'AMER','','','','True','False','','','Cumulus Corp HQ','10000.0','sqft','','','','','Office','','','12000.0','sqft','0120u000000Ke9PAAS','','5','1','','','');
+INSERT INTO "StnryAssetEnvrSrc" VALUES(1,'EMEA','','','','True','False','','','Cumulus UK Asset','5000.0','sqft','','','','','Office','','','5600.0','sqft','0120u000000Ke9PAAS','','','6','2','','');
+INSERT INTO "StnryAssetEnvrSrc" VALUES(2,'AMER','','','','True','False','','','Cumulus Arlington Asset','9000.0','sqft','','','','','Office','','','9600.0','sqft','0120u000000Ke9PAAS','','','7','1','','');
+INSERT INTO "StnryAssetEnvrSrc" VALUES(3,'AMER','','','','True','False','','','Cumulus NY Asset','8000.0','sqft','','','','','Office','','','8600.0','sqft','0120u000000Ke9PAAS','','','8','1','','');
+INSERT INTO "StnryAssetEnvrSrc" VALUES(4,'AMER','','','','True','False','','','Cumulus Corp HQ','10000.0','sqft','','','','','Office','','','12000.0','sqft','0120u000000Ke9PAAS','','','5','1','','');
 CREATE TABLE "StnryAssetEnvrSrc_rt_mapping" (
 	record_type_id VARCHAR(18) NOT NULL, 
 	developer_name VARCHAR(255), 
