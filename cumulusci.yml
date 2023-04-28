@@ -6,9 +6,7 @@ project:
         api_version: '57.0'
     git:
         default_branch: 'main'
-        prefix_feature: 'feature/'
-        prefix_beta: 'beta/'
-        prefix_release: 'release/'
+        repo_url: https://github.com/Industries-SolutionFactory-Connect/Netzero-Percentage-Allocation-Emissions
     source_format: sfdx
 
 tasks:
