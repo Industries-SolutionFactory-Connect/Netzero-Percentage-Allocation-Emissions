@@ -2,6 +2,6 @@
 {
   "packageDirectories": [{ "path": "force-app", "default": true }],
   "namespace": null,
-  "sourceApiVersion": "57.0"
+  "sourceApiVersion": "58.0"
 }
 
